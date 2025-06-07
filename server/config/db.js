@@ -2,14 +2,10 @@ import mongoose from 'mongoose';
 
 const ConnectDB = async () => {
   try {
-    await mongoose.connect(`${process.env.MONGODB_URI}/hotel-booking`, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
-    console.log('✅ MongoDB connected successfully');
+    mongoose.connection.on('connected', ()=> console.log("Database Connected"));
+    await mongoose.connect(`${process.env.MONGODB_URI}/hotel-booking`);
   } catch (error) {
-    console.error('❌ MongoDB connection error:', error);
-    process.exit(1); // Exit on failure
+    console.log(error.message);
   }
 };
 
