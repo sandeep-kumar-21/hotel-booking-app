@@ -27,11 +27,11 @@ export const AppProvider = ({ children }) => {
             if(data.success){
                 setRooms(data.rooms)
             }else{
-                // console.log("fetch rooms else  error:" + data.message);
+                console.log("fetch rooms else  error:" + data.message);
                 toast.error(data.message)
             }
         }catch(error){
-            // console.log("fetch rooms error : "+ error.message);
+            console.log("fetch rooms error : "+ error.message);
             toast.error(error.message)
         }
     }
