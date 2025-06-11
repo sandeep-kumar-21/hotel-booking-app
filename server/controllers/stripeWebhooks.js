@@ -16,7 +16,7 @@ export const stripeWebhooks = async (req, res) => {
 
 
     // handle the event
-    if(event.type === 'payment_intent.successed'){
+    if(event.type === 'payment_intent.succeeded'){
         const paymentIntent = event.data.object;
         const paymenIntentId = paymentIntent.id;
 
